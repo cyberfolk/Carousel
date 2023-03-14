@@ -32,6 +32,7 @@
 
 const DB_IMG = ["./assets/img/01.webp", "./assets/img/02.webp", "./assets/img/03.webp", "./assets/img/04.webp", "./assets/img/05.webp"];
 const elImages = document.querySelector(".images");
+const elSideShower = document.querySelector(".ms_side_shower");
 const elBtnUp = document.querySelector("#up");
 const elBtnDown = document.querySelector("#down");
 let imgShow = 0;
@@ -39,8 +40,15 @@ let imgShow = 0;
 for (let i = 0; i < DB_IMG.length; i++) {
   const elImg = document.createElement("img");
   elImg.src = DB_IMG[i];
-  elImg.classList.add("ms_image", "ms_not_show");
+  elImg.classList.add("ms_not_show");
   elImages.append(elImg);
+
+  const elImg2 = document.createElement("img");
+  elImg2.src = DB_IMG[i];
+  const elSideCcell = document.createElement("div");
+  elSideCcell.classList.add("ms_side_cell");
+  elSideCcell.append(elImg2);
+  elSideShower.append(elSideCcell);
 }
 elImages.children[imgShow].classList.remove("ms_not_show");
 
