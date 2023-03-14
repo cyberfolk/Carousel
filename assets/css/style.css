@@ -7,9 +7,17 @@
     --ca_bg_side: #313447;
 }
 
+/* #region utilities .......................... */
 .ms_not_show {
     display: none;
 }
+
+.ms_opacity {
+    filter: brightness(25%);
+}
+
+/* #endregion utilities .......................*/
+
 
 .carousel {
     margin-top: 10rem;
@@ -50,10 +58,10 @@ nav .ms_btn {
 
 nav .ms_btn#up {
     top: 5%;
-    right: 5%;
+    right: 7.5%
 }
 
 nav .ms_btn#down {
     bottom: 5%;
-    right: 5%
+    right: 7.5%
 }

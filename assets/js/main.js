@@ -46,26 +46,32 @@ for (let i = 0; i < DB_IMG.length; i++) {
   const elImg2 = document.createElement("img");
   elImg2.src = DB_IMG[i];
   const elSideCcell = document.createElement("div");
-  elSideCcell.classList.add("ms_side_cell");
+  elSideCcell.classList.add("ms_side_cell", "ms_opacity");
   elSideCcell.append(elImg2);
   elSideShower.append(elSideCcell);
 }
 elImages.children[imgShow].classList.remove("ms_not_show");
+elSideShower.children[imgShow].classList.remove("ms_opacity");
 
 elBtnUp.addEventListener("click", function () {
   elImages.children[imgShow].classList.add("ms_not_show");
+  elSideShower.children[imgShow].classList.add("ms_opacity");
+
   imgShow++;
   if (imgShow >= DB_IMG.length) {
     imgShow = 0;
   }
   elImages.children[imgShow].classList.remove("ms_not_show");
+  elSideShower.children[imgShow].classList.remove("ms_opacity");
 });
 
 elBtnDown.addEventListener("click", function () {
   elImages.children[imgShow].classList.add("ms_not_show");
+  elSideShower.children[imgShow].classList.add("ms_opacity");
   imgShow--;
   if (imgShow < 0) {
     imgShow = DB_IMG.length - 1;
   }
   elImages.children[imgShow].classList.remove("ms_not_show");
+  elSideShower.children[imgShow].classList.remove("ms_opacity");
 });
