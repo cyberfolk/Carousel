@@ -30,4 +30,13 @@
  * Al momento giusto (ihihhi starà a voi capire quale) rispondete a questa domanda: "Quanti cicli servono?"
  */
 
-console.log("Funziona?");
+const DB_IMG = ["./assets/img/01.webp", "./assets/img/02.webp", "./assets/img/03.webp", "./assets/img/04.webp", "./assets/img/05.webp"];
+const elImages = document.querySelector(".images");
+
+for (let i = 0; i < DB_IMG.length; i++) {
+  console.log(elImages);
+  const elImg = document.createElement("img");
+  elImg.src = DB_IMG[i];
+  elImg.classList.add("ms_image", "ms_not_show");
+  elImages.append(elImg);
+}

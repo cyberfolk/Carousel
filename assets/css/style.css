@@ -34,3 +34,7 @@
     bottom: 5%;
     right: 50%
 }
+
+.ms_not_show {
+    display: none;
+}
