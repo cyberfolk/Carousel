@@ -37,41 +37,67 @@ const elBtnUp = document.querySelector("#up");
 const elBtnDown = document.querySelector("#down");
 let imgShow = 0;
 
+/* #region popolate first time ...................................... */
 for (let i = 0; i < DB_IMG.length; i++) {
   const elImg = document.createElement("img");
   elImg.src = DB_IMG[i];
   elImg.classList.add("ms_not_show");
   elImages.append(elImg);
 
-  const elImg2 = document.createElement("img");
-  elImg2.src = DB_IMG[i];
   const elSideCcell = document.createElement("div");
   elSideCcell.classList.add("ms_side_cell", "ms_opacity");
-  elSideCcell.append(elImg2);
   elSideShower.append(elSideCcell);
 }
+popolateSide(unRotateRight(unRotateRight(DB_IMG)));
 elImages.children[imgShow].classList.remove("ms_not_show");
-elSideShower.children[imgShow].classList.remove("ms_opacity");
+elSideShower.children[2].classList.remove("ms_opacity");
+/* #rendegion popolate first time ...................................... */
 
-elBtnUp.addEventListener("click", function () {
+elBtnUp.onclick = function () {
+  up();
+};
+
+elBtnDown.onclick = function () {
+  down();
+};
+
+function up() {
   elImages.children[imgShow].classList.add("ms_not_show");
-  elSideShower.children[imgShow].classList.add("ms_opacity");
-
   imgShow++;
   if (imgShow >= DB_IMG.length) {
     imgShow = 0;
   }
   elImages.children[imgShow].classList.remove("ms_not_show");
-  elSideShower.children[imgShow].classList.remove("ms_opacity");
-});
+  popolateSide(unRotateLeft(DB_IMG));
+}
 
-elBtnDown.addEventListener("click", function () {
+function down() {
   elImages.children[imgShow].classList.add("ms_not_show");
-  elSideShower.children[imgShow].classList.add("ms_opacity");
   imgShow--;
   if (imgShow < 0) {
     imgShow = DB_IMG.length - 1;
   }
   elImages.children[imgShow].classList.remove("ms_not_show");
-  elSideShower.children[imgShow].classList.remove("ms_opacity");
-});
+  popolateSide(unRotateRight(DB_IMG));
+}
+
+function rotateLeft(array) {
+  let first = array.shift();
+  array.push(first);
+  return array;
+}
+
+function unRotateRight(array) {
+  let last = array.pop();
+  array.unshift(last);
+  return array;
+}
+
+function popolateSide(DB_IMG) {
+  for (let i = 0; i < DB_IMG.length; i++) {
+    const elImg = document.createElement("img");
+    elImg.src = DB_IMG[i];
+    elSideShower.children[i].innerHTML = "";
+    elSideShower.children[i].append(elImg);
+  }
+}
