@@ -11,9 +11,6 @@
 .images {
     height: 33rem;
     text-align: center;
-    line-height: 50%;
-    vertical-align: middle;
-    display: inline-block;
 }
 
 .ms_image {
