@@ -6,10 +6,11 @@
     margin-top: 10rem;
     background-color: red;
     position: relative;
+    height: 33rem;
 }
 
 .images {
-    height: 33rem;
+    width: 80%;
     text-align: center;
 }
 
@@ -34,4 +35,15 @@
 
 .ms_not_show {
     display: none;
+}
+
+.ms_side_shower {
+    width: 20%;
+    background-color: blue;
+}
+
+.ms_side_cell {
+    height: 20%;
+    background-color: green;
+    border: 1px solid black;
 }
