@@ -47,11 +47,17 @@ elImages.children[imgShow].classList.remove("ms_not_show");
 elBtnUp.addEventListener("click", function () {
   elImages.children[imgShow].classList.add("ms_not_show");
   imgShow++;
+  if (imgShow >= DB_IMG.length) {
+    imgShow = 0;
+  }
   elImages.children[imgShow].classList.remove("ms_not_show");
 });
 
 elBtnDown.addEventListener("click", function () {
   elImages.children[imgShow].classList.add("ms_not_show");
   imgShow--;
+  if (imgShow < 0) {
+    imgShow = DB_IMG.length - 1;
+  }
   elImages.children[imgShow].classList.remove("ms_not_show");
 });
