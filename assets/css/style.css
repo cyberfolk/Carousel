@@ -2,48 +2,58 @@
     border: red 1 dashed;
 }
 
-.carousel {
-    margin-top: 10rem;
-    background-color: red;
-    position: relative;
-    height: 33rem;
-}
-
-.images {
-    width: 80%;
-    text-align: center;
-}
-
-.ms_image {
-    max-width: 100%;
-    max-height: 100%;
-}
-
-.ms_btn {
-    position: absolute;
-}
-
-.ms_btn#up {
-    top: 5%;
-    right: 50%;
-}
-
-.ms_btn#down {
-    bottom: 5%;
-    right: 50%
+:root {
+    --ca_bg_carousel: #212333;
+    --ca_bg_side: #313447;
 }
 
 .ms_not_show {
     display: none;
 }
 
-.ms_side_shower {
-    width: 20%;
-    background-color: blue;
+.carousel {
+    margin-top: 10rem;
+    background-color: var(--ca_bg_carousel);
+    position: relative;
+    height: 33rem;
 }
 
-.ms_side_cell {
+.carousel .images {
+    width: 80%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.carousel .images > img {
+    height: 100%;
+}
+
+.carousel .ms_side_shower {
+    width: 20%;
+}
+
+.carousel .ms_side_cell {
     height: 20%;
-    background-color: green;
+    background-color: var(--ca_bg_side);
     border: 1px solid black;
+    text-align: center;
+    overflow: hidden;
+}
+
+.carousel .ms_side_cell > img {
+    width: 100%;
+}
+
+nav .ms_btn {
+    position: absolute;
+}
+
+nav .ms_btn#up {
+    top: 5%;
+    right: 5%;
+}
+
+nav .ms_btn#down {
+    bottom: 5%;
+    right: 5%
 }
