@@ -32,11 +32,26 @@
 
 const DB_IMG = ["./assets/img/01.webp", "./assets/img/02.webp", "./assets/img/03.webp", "./assets/img/04.webp", "./assets/img/05.webp"];
 const elImages = document.querySelector(".images");
+const elBtnUp = document.querySelector("#up");
+const elBtnDown = document.querySelector("#down");
+let imgShow = 0;
 
 for (let i = 0; i < DB_IMG.length; i++) {
-  console.log(elImages);
   const elImg = document.createElement("img");
   elImg.src = DB_IMG[i];
   elImg.classList.add("ms_image", "ms_not_show");
   elImages.append(elImg);
 }
+elImages.children[imgShow].classList.remove("ms_not_show");
+
+elBtnUp.addEventListener("click", function () {
+  elImages.children[imgShow].classList.add("ms_not_show");
+  imgShow++;
+  elImages.children[imgShow].classList.remove("ms_not_show");
+});
+
+elBtnDown.addEventListener("click", function () {
+  elImages.children[imgShow].classList.add("ms_not_show");
+  imgShow--;
+  elImages.children[imgShow].classList.remove("ms_not_show");
+});
