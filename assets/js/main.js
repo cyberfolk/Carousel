@@ -39,16 +39,10 @@ let imgShow = 0;
 
 /* #region popolate first time ...................................... */
 for (let i = 0; i < DB_IMG.length; i++) {
-  const elImg = document.createElement("img");
-  elImg.src = DB_IMG[i];
-  elImg.classList.add("ms_not_show");
-  elImages.append(elImg);
-
-  const elSiderCell = document.createElement("div");
-  elSiderCell.classList.add("ms_sider_cell", "ms_opacity");
-  elSider.append(elSiderCell);
+  appenImgIntoImages(DB_IMG[i]);
+  appenCellIntoSider();
 }
-popolateSide(rotateRight(rotateRight(DB_IMG)));
+popolateSider(rotateRight(rotateRight(DB_IMG)));
 elImages.children[imgShow].classList.remove("ms_not_show");
 elSider.children[2].classList.remove("ms_opacity");
 /* #rendegion popolate first time ...................................... */
@@ -68,7 +62,7 @@ function up() {
     imgShow = DB_IMG.length - 1;
   }
   elImages.children[imgShow].classList.remove("ms_not_show");
-  popolateSide(rotateRight(DB_IMG));
+  popolateSider(rotateRight(DB_IMG));
 }
 
 function down() {
@@ -78,7 +72,7 @@ function down() {
     imgShow = 0;
   }
   elImages.children[imgShow].classList.remove("ms_not_show");
-  popolateSide(rotateLeft(DB_IMG));
+  popolateSider(rotateLeft(DB_IMG));
 }
 
 function rotateLeft(array) {
@@ -93,7 +87,7 @@ function rotateRight(array) {
   return array;
 }
 
-function popolateSide(DB_IMG) {
+function popolateSider(DB_IMG) {
   for (let i = 0; i < DB_IMG.length; i++) {
     const elImg = document.createElement("img");
     elImg.src = DB_IMG[i];
@@ -101,3 +95,27 @@ function popolateSide(DB_IMG) {
     elSider.children[i].append(elImg);
   }
 }
+
+function appenImgIntoImages(urlImg) {
+  const elImg = document.createElement("img");
+  elImg.src = urlImg;
+  elImg.classList.add("ms_not_show");
+  elImages.append(elImg);
+}
+
+function appenCellIntoSider() {
+  const elSiderCell = document.createElement("div");
+  elSiderCell.classList.add("ms_sider_cell", "ms_opacity");
+  elSider.append(elSiderCell);
+}
+
+/* function popolateArrayElementImg(DB_IMG) {
+  let arrayElementImg = [];
+  for (let i = 0; i < DB_IMG.length; i++) {
+    const elImg = document.createElement("img");
+    elImg.src = DB_IMG[i];
+    elImg.classList.add("ms_not_show");
+    arrayElementImg[i] = elImg;
+  }
+  return arrayElementImg;
+} */
