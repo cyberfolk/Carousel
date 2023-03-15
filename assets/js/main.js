@@ -39,9 +39,10 @@ let imgShow = 0;
 
 /* #region popolate first time ...................................... */
 for (let i = 0; i < DB_IMG.length; i++) {
-  appenImgIntoImages(DB_IMG[i]);
-  appenCellIntoSider();
+  appendImg(DB_IMG[i]);
+  appenCell();
 }
+let elSiderCell = document.querySelectorAll(".ms_sider_cell");
 popolateSider(rotateRight(rotateRight(DB_IMG)));
 elImages.children[imgShow].classList.add("active");
 elSider.children[2].classList.remove("ms_opacity");
@@ -87,6 +88,12 @@ function rotateRight(array) {
   return array;
 }
 
+/* function arrayRotate(arr, reverse) {
+  if (reverse) arr.unshift(arr.pop());
+  else arr.push(arr.shift());
+  return arr;
+} */
+
 function popolateSider(DB_IMG) {
   for (let i = 0; i < DB_IMG.length; i++) {
     const elImg = document.createElement("img");
@@ -96,13 +103,13 @@ function popolateSider(DB_IMG) {
   }
 }
 
-function appenImgIntoImages(urlImg) {
+function appendImg(urlImg) {
   const elImg = document.createElement("img");
   elImg.src = urlImg;
   elImages.append(elImg);
 }
 
-function appenCellIntoSider() {
+function appenCell() {
   const elSiderCell = document.createElement("div");
   elSiderCell.classList.add("ms_sider_cell", "ms_opacity");
   elSider.append(elSiderCell);
