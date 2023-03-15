@@ -18,29 +18,28 @@
 
 /* #endregion utilities .......................*/
 
-
-.carousel {
+.ms_carousel {
     margin-top: 10rem;
     background-color: var(--ca_bg_carousel);
     position: relative;
     height: 33rem;
 }
 
-.carousel .images {
+.ms_carousel .ms_images {
     width: 80%;
     text-align: center;
     overflow: hidden;
 }
 
-.carousel .images > img {
+.ms_carousel .ms_images > img {
     height: 100%;
 }
 
-.carousel .ms_side_shower {
+.ms_carousel .ms_sider {
     width: 20%;
 }
 
-.carousel .ms_side_cell {
+.ms_carousel .ms_sider_cell {
     height: 20%;
     background-color: var(--ca_bg_side);
     border: 1px solid black;
@@ -48,7 +47,7 @@
     overflow: hidden;
 }
 
-.carousel .ms_side_cell > img {
+.ms_carousel .ms_sider_cell > img {
     width: 100%;
 }
 

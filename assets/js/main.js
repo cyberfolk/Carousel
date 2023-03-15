@@ -31,8 +31,8 @@
  */
 
 const DB_IMG = ["./assets/img/01.webp", "./assets/img/02.webp", "./assets/img/03.webp", "./assets/img/04.webp", "./assets/img/05.webp"];
-const elImages = document.querySelector(".images");
-const elSideShower = document.querySelector(".ms_side_shower");
+const elImages = document.querySelector(".ms_images");
+const elSider = document.querySelector(".ms_sider");
 const elBtnUp = document.querySelector("#up");
 const elBtnDown = document.querySelector("#down");
 let imgShow = 0;
@@ -44,13 +44,13 @@ for (let i = 0; i < DB_IMG.length; i++) {
   elImg.classList.add("ms_not_show");
   elImages.append(elImg);
 
-  const elSideCcell = document.createElement("div");
-  elSideCcell.classList.add("ms_side_cell", "ms_opacity");
-  elSideShower.append(elSideCcell);
+  const elSiderCell = document.createElement("div");
+  elSiderCell.classList.add("ms_sider_cell", "ms_opacity");
+  elSider.append(elSiderCell);
 }
 popolateSide(rotateRight(rotateRight(DB_IMG)));
 elImages.children[imgShow].classList.remove("ms_not_show");
-elSideShower.children[2].classList.remove("ms_opacity");
+elSider.children[2].classList.remove("ms_opacity");
 /* #rendegion popolate first time ...................................... */
 
 elBtnUp.onclick = function () {
@@ -97,7 +97,7 @@ function popolateSide(DB_IMG) {
   for (let i = 0; i < DB_IMG.length; i++) {
     const elImg = document.createElement("img");
     elImg.src = DB_IMG[i];
-    elSideShower.children[i].innerHTML = "";
-    elSideShower.children[i].append(elImg);
+    elSider.children[i].innerHTML = "";
+    elSider.children[i].append(elImg);
   }
 }
