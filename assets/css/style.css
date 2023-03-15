@@ -37,12 +37,12 @@
 }
 
 /* #endendregion ms_images ....................*/
-/* #endregion ms_sider ........................*/
-.ms_carousel .ms_sider {
+/* #endregion ms_thumbnails ........................*/
+.ms_carousel .ms_thumbnails {
     width: 20%;
 }
 
-.ms_carousel .ms_sider_cell {
+.ms_carousel .ms_thumbnails_cell {
     height: 20%;
     background-color: var(--ca_bg_side);
     border: 1px solid black;
@@ -50,11 +50,11 @@
     overflow: hidden;
 }
 
-.ms_carousel .ms_sider_cell > img {
+.ms_carousel .ms_thumbnails_cell > img {
     width: 100%;
 }
 
-/* #endendregion ms_sider .....................*/
+/* #endendregion ms_thumbnails .....................*/
 
 nav .ms_btn {
     position: absolute;

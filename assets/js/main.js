@@ -32,7 +32,7 @@
 
 const DB_IMG = ["./assets/img/01.webp", "./assets/img/02.webp", "./assets/img/03.webp", "./assets/img/04.webp", "./assets/img/05.webp"];
 const elImages = document.querySelector(".ms_images");
-const elSider = document.querySelector(".ms_sider");
+const elThumbnails = document.querySelector(".ms_thumbnails");
 const elBtnUp = document.querySelector("#up");
 const elBtnDown = document.querySelector("#down");
 let imgShow = 0;
@@ -42,10 +42,10 @@ for (let i = 0; i < DB_IMG.length; i++) {
   appendImg(DB_IMG[i]);
   appenCell();
 }
-let elSiderCell = document.querySelectorAll(".ms_sider_cell");
-popolateSider(rotateRight(rotateRight(DB_IMG)));
+let elThumbnailsCell = document.querySelectorAll(".ms_thumbnails_cell");
+popolateThumbnails(rotateRight(rotateRight(DB_IMG)));
 elImages.children[imgShow].classList.add("active");
-elSider.children[2].classList.remove("ms_opacity");
+elThumbnails.children[2].classList.remove("ms_opacity");
 /* #rendegion popolate first time ...................................... */
 
 elBtnUp.onclick = function () {
@@ -63,7 +63,7 @@ function up() {
     imgShow = DB_IMG.length - 1;
   }
   elImages.children[imgShow].classList.add("active");
-  popolateSider(rotateRight(DB_IMG));
+  popolateThumbnails(rotateRight(DB_IMG));
 }
 
 function down() {
@@ -73,7 +73,7 @@ function down() {
     imgShow = 0;
   }
   elImages.children[imgShow].classList.add("active");
-  popolateSider(rotateLeft(DB_IMG));
+  popolateThumbnails(rotateLeft(DB_IMG));
 }
 
 function rotateLeft(array) {
@@ -94,12 +94,12 @@ function rotateRight(array) {
   return arr;
 } */
 
-function popolateSider(DB_IMG) {
+function popolateThumbnails(DB_IMG) {
   for (let i = 0; i < DB_IMG.length; i++) {
     const elImg = document.createElement("img");
     elImg.src = DB_IMG[i];
-    elSider.children[i].innerHTML = "";
-    elSider.children[i].append(elImg);
+    elThumbnails.children[i].innerHTML = "";
+    elThumbnails.children[i].append(elImg);
   }
 }
 
@@ -110,9 +110,9 @@ function appendImg(urlImg) {
 }
 
 function appenCell() {
-  const elSiderCell = document.createElement("div");
-  elSiderCell.classList.add("ms_sider_cell", "ms_opacity");
-  elSider.append(elSiderCell);
+  const elThumbnailsCell = document.createElement("div");
+  elThumbnailsCell.classList.add("ms_thumbnails_cell", "ms_opacity");
+  elThumbnails.append(elThumbnailsCell);
 }
 
 /* function popolateArrayElementImg(DB_IMG) {
