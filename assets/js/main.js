@@ -48,7 +48,7 @@ for (let i = 0; i < DB_IMG.length; i++) {
   elSideCcell.classList.add("ms_side_cell", "ms_opacity");
   elSideShower.append(elSideCcell);
 }
-popolateSide(unRotateRight(unRotateRight(DB_IMG)));
+popolateSide(rotateRight(rotateRight(DB_IMG)));
 elImages.children[imgShow].classList.remove("ms_not_show");
 elSideShower.children[2].classList.remove("ms_opacity");
 /* #rendegion popolate first time ...................................... */
@@ -63,22 +63,22 @@ elBtnDown.onclick = function () {
 
 function up() {
   elImages.children[imgShow].classList.add("ms_not_show");
-  imgShow++;
-  if (imgShow >= DB_IMG.length) {
-    imgShow = 0;
-  }
-  elImages.children[imgShow].classList.remove("ms_not_show");
-  popolateSide(unRotateLeft(DB_IMG));
-}
-
-function down() {
-  elImages.children[imgShow].classList.add("ms_not_show");
   imgShow--;
   if (imgShow < 0) {
     imgShow = DB_IMG.length - 1;
   }
   elImages.children[imgShow].classList.remove("ms_not_show");
-  popolateSide(unRotateRight(DB_IMG));
+  popolateSide(rotateRight(DB_IMG));
+}
+
+function down() {
+  elImages.children[imgShow].classList.add("ms_not_show");
+  imgShow++;
+  if (imgShow >= DB_IMG.length) {
+    imgShow = 0;
+  }
+  elImages.children[imgShow].classList.remove("ms_not_show");
+  popolateSide(rotateLeft(DB_IMG));
 }
 
 function rotateLeft(array) {
@@ -87,7 +87,7 @@ function rotateLeft(array) {
   return array;
 }
 
-function unRotateRight(array) {
+function rotateRight(array) {
   let last = array.pop();
   array.unshift(last);
   return array;
