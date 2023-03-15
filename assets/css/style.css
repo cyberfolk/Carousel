@@ -8,16 +8,11 @@
 }
 
 /* #region utilities .......................... */
-.ms_not_show {
-    display: none;
-}
-
 .ms_opacity {
     filter: brightness(25%);
 }
 
 /* #endregion utilities .......................*/
-
 .ms_carousel {
     margin-top: 10rem;
     background-color: var(--ca_bg_carousel);
@@ -25,9 +20,11 @@
     height: 33rem;
 }
 
+/* #endregion ms_images .......................*/
 .ms_carousel .ms_images {
     width: 80%;
     text-align: center;
+    object-fit: cover;
     overflow: hidden;
 }
 
@@ -35,6 +32,12 @@
     height: 100%;
 }
 
+.ms_carousel .ms_images > img:not(.active) {
+    display: none;
+}
+
+/* #endendregion ms_images ....................*/
+/* #endregion ms_sider ........................*/
 .ms_carousel .ms_sider {
     width: 20%;
 }
@@ -50,6 +53,8 @@
 .ms_carousel .ms_sider_cell > img {
     width: 100%;
 }
+
+/* #endendregion ms_sider .....................*/
 
 nav .ms_btn {
     position: absolute;

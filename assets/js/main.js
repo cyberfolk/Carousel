@@ -43,7 +43,7 @@ for (let i = 0; i < DB_IMG.length; i++) {
   appenCellIntoSider();
 }
 popolateSider(rotateRight(rotateRight(DB_IMG)));
-elImages.children[imgShow].classList.remove("ms_not_show");
+elImages.children[imgShow].classList.add("active");
 elSider.children[2].classList.remove("ms_opacity");
 /* #rendegion popolate first time ...................................... */
 
@@ -56,22 +56,22 @@ elBtnDown.onclick = function () {
 };
 
 function up() {
-  elImages.children[imgShow].classList.add("ms_not_show");
+  elImages.children[imgShow].classList.remove("active");
   imgShow--;
   if (imgShow < 0) {
     imgShow = DB_IMG.length - 1;
   }
-  elImages.children[imgShow].classList.remove("ms_not_show");
+  elImages.children[imgShow].classList.add("active");
   popolateSider(rotateRight(DB_IMG));
 }
 
 function down() {
-  elImages.children[imgShow].classList.add("ms_not_show");
+  elImages.children[imgShow].classList.remove("active");
   imgShow++;
   if (imgShow >= DB_IMG.length) {
     imgShow = 0;
   }
-  elImages.children[imgShow].classList.remove("ms_not_show");
+  elImages.children[imgShow].classList.add("active");
   popolateSider(rotateLeft(DB_IMG));
 }
 
@@ -99,7 +99,6 @@ function popolateSider(DB_IMG) {
 function appenImgIntoImages(urlImg) {
   const elImg = document.createElement("img");
   elImg.src = urlImg;
-  elImg.classList.add("ms_not_show");
   elImages.append(elImg);
 }
 
