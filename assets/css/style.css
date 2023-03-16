@@ -23,13 +23,12 @@
 /* #endregion ms_images .......................*/
 .ms_carousel .ms_images {
     width: 80%;
-    text-align: center;
-    object-fit: cover;
-    overflow: hidden;
 }
 
 .ms_carousel .ms_images > img {
     height: 100%;
+    width: 100%;
+    object-fit: contain;
 }
 
 .ms_carousel .ms_images > img:not(.active) {
@@ -51,7 +50,9 @@
 }
 
 .ms_carousel .ms_thumbnails_cell > img {
+    height: 100%;
     width: 100%;
+    object-fit: cover;
 }
 
 /* #endendregion ms_thumbnails .....................*/
