@@ -30,6 +30,7 @@
  * Al momento giusto (ihihhi starà a voi capire quale) rispondete a questa domanda: "Quanti cicli servono?"
  */
 
+// ===== VARIABLE DECLARATION ============================================================= //
 const DB_IMG = ["./assets/img/01.webp", "./assets/img/02.webp", "./assets/img/03.webp", "./assets/img/04.webp", "./assets/img/05.webp"];
 const el_Images = document.querySelector(".ms_images");
 const el_Thumbnails = document.querySelector(".ms_thumbnails");
@@ -37,7 +38,8 @@ const el_BtnUp = document.querySelector("#up");
 const el_BtnDown = document.querySelector("#down");
 let imgActive = 0;
 
-/* #region POPOLATE DOM [First Time] ....................................... */
+// ===== MAIN ============================================================================= //
+// Popolate DOM first time
 for (let i = 0; i < DB_IMG.length; i++) {
   appendImg_images(DB_IMG[i]);
   appenCell_thumbnails();
@@ -45,8 +47,8 @@ for (let i = 0; i < DB_IMG.length; i++) {
 popolateThumbnails(rotateRight(rotateRight(DB_IMG)));
 el_Images.children[imgActive].classList.add("active");
 el_Thumbnails.children[2].classList.remove("ms_opacity");
-/* #rendegion POPOLATE DOM [First Time] .................................... */
 
+// ===== EVENT ========================================================================= //
 el_BtnUp.onclick = function () {
   el_Images.children[imgActive].classList.remove("active");
   imgActive--;
@@ -67,6 +69,7 @@ el_BtnDown.onclick = function () {
   popolateThumbnails(rotateLeft(DB_IMG));
 };
 
+// ===== FUNCTION ========================================================================= //
 function rotateLeft(array) {
   let first = array.shift();
   array.push(first);
