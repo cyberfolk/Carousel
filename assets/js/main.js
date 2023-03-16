@@ -31,50 +31,41 @@
  */
 
 const DB_IMG = ["./assets/img/01.webp", "./assets/img/02.webp", "./assets/img/03.webp", "./assets/img/04.webp", "./assets/img/05.webp"];
-const elImages = document.querySelector(".ms_images");
-const elThumbnails = document.querySelector(".ms_thumbnails");
-const elBtnUp = document.querySelector("#up");
-const elBtnDown = document.querySelector("#down");
-let imgShow = 0;
+const el_Images = document.querySelector(".ms_images");
+const el_Thumbnails = document.querySelector(".ms_thumbnails");
+const el_BtnUp = document.querySelector("#up");
+const el_BtnDown = document.querySelector("#down");
+let imgActive = 0;
 
-/* #region popolate first time ...................................... */
+/* #region POPOLATE DOM [First Time] ....................................... */
 for (let i = 0; i < DB_IMG.length; i++) {
-  appendImg(DB_IMG[i]);
-  appenCell();
+  appendImg_images(DB_IMG[i]);
+  appenCell_thumbnails();
 }
-let elThumbnailsCell = document.querySelectorAll(".ms_thumbnails_cell");
 popolateThumbnails(rotateRight(rotateRight(DB_IMG)));
-elImages.children[imgShow].classList.add("active");
-elThumbnails.children[2].classList.remove("ms_opacity");
-/* #rendegion popolate first time ...................................... */
+el_Images.children[imgActive].classList.add("active");
+el_Thumbnails.children[2].classList.remove("ms_opacity");
+/* #rendegion POPOLATE DOM [First Time] .................................... */
 
-elBtnUp.onclick = function () {
-  up();
-};
-
-elBtnDown.onclick = function () {
-  down();
-};
-
-function up() {
-  elImages.children[imgShow].classList.remove("active");
-  imgShow--;
-  if (imgShow < 0) {
-    imgShow = DB_IMG.length - 1;
+el_BtnUp.onclick = function () {
+  el_Images.children[imgActive].classList.remove("active");
+  imgActive--;
+  if (imgActive < 0) {
+    imgActive = DB_IMG.length - 1;
   }
-  elImages.children[imgShow].classList.add("active");
+  el_Images.children[imgActive].classList.add("active");
   popolateThumbnails(rotateRight(DB_IMG));
-}
+};
 
-function down() {
-  elImages.children[imgShow].classList.remove("active");
-  imgShow++;
-  if (imgShow >= DB_IMG.length) {
-    imgShow = 0;
+el_BtnDown.onclick = function () {
+  el_Images.children[imgActive].classList.remove("active");
+  imgActive++;
+  if (imgActive >= DB_IMG.length) {
+    imgActive = 0;
   }
-  elImages.children[imgShow].classList.add("active");
+  el_Images.children[imgActive].classList.add("active");
   popolateThumbnails(rotateLeft(DB_IMG));
-}
+};
 
 function rotateLeft(array) {
   let first = array.shift();
@@ -88,40 +79,23 @@ function rotateRight(array) {
   return array;
 }
 
-/* function arrayRotate(arr, reverse) {
-  if (reverse) arr.unshift(arr.pop());
-  else arr.push(arr.shift());
-  return arr;
-} */
-
 function popolateThumbnails(DB_IMG) {
   for (let i = 0; i < DB_IMG.length; i++) {
-    const elImg = document.createElement("img");
-    elImg.src = DB_IMG[i];
-    elThumbnails.children[i].innerHTML = "";
-    elThumbnails.children[i].append(elImg);
+    const el_Img = document.createElement("img");
+    el_Img.src = DB_IMG[i];
+    el_Thumbnails.children[i].innerHTML = "";
+    el_Thumbnails.children[i].append(el_Img);
   }
 }
 
-function appendImg(urlImg) {
-  const elImg = document.createElement("img");
-  elImg.src = urlImg;
-  elImages.append(elImg);
+function appendImg_images(urlImg) {
+  const el_Img = document.createElement("img");
+  el_Img.src = urlImg;
+  el_Images.append(el_Img);
 }
 
-function appenCell() {
-  const elThumbnailsCell = document.createElement("div");
-  elThumbnailsCell.classList.add("ms_thumbnails_cell", "ms_opacity");
-  elThumbnails.append(elThumbnailsCell);
+function appenCell_thumbnails() {
+  const el_ThumbnailsCell = document.createElement("div");
+  el_ThumbnailsCell.classList.add("ms_thumbnails_cell", "ms_opacity");
+  el_Thumbnails.append(el_ThumbnailsCell);
 }
-
-/* function popolateArrayElementImg(DB_IMG) {
-  let arrayElementImg = [];
-  for (let i = 0; i < DB_IMG.length; i++) {
-    const elImg = document.createElement("img");
-    elImg.src = DB_IMG[i];
-    elImg.classList.add("ms_not_show");
-    arrayElementImg[i] = elImg;
-  }
-  return arrayElementImg;
-} */
