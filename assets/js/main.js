@@ -91,18 +91,6 @@ el_btnDown.onclick = function () {
 };
 
 // ===== FUNCTION ========================================================================= //
-function rotateLeft(array) {
-  let first = array.shift();
-  array.push(first);
-  return array;
-}
-
-function rotateRight(array) {
-  let last = array.pop();
-  array.unshift(last);
-  return array;
-}
-
 function popolateThumbnails(el_image) {
   el_image.forEach((el_image, i) => {
     el_thumbnails.children[i].innerHTML = "";
@@ -141,9 +129,9 @@ function popolateImages(images) {
 
 function rotateImages(images, n) {
   let el_images_tmp = create_el_images_tmp(images);
-  for (let i = 0; i < Math.abs(n) + 2; i++) {
-    rotateRight(el_images_tmp)
+  for (let i = 0; i < n + 2; i++) {
+    let last = el_images_tmp.pop();
+    el_images_tmp.unshift(last);
   }
   return el_images_tmp
-
 }
