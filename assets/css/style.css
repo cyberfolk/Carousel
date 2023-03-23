@@ -16,7 +16,7 @@
 .ms_carousel {
     background-color: var(--ca_bg_carousel);
     position: relative;
-    margin-top: 10rem;
+    margin-top: 1rem;
 }
 
 .ms_carousel .ms_titel {

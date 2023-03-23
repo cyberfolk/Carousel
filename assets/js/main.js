@@ -58,6 +58,9 @@ const el_text = document.querySelector(".ms_text");
 const el_thumbnails = document.querySelector(".ms_thumbnails");
 const el_btnUp = document.querySelector("#up");
 const el_btnDown = document.querySelector("#down");
+const el_btnPlay = document.querySelector("#play");
+const el_btnStop = document.querySelector("#stop");
+const el_btnRevert = document.querySelector("#revert");
 const CENTRE_THUMBNAILS = 2
 let imgActive = 0;
 
