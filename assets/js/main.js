@@ -63,7 +63,8 @@ let imgActive = 0;
 // ===== MAIN ============================================================================= //
 popolateImages(images);
 createCells_thumbnails();
-popolateThumbnails(rotateRight(rotateRight(images)));
+const copy_images = [...images];
+popolateThumbnails(rotateRight(rotateRight(copy_images)));
 
 // ===== EVENT ========================================================================= //
 el_btnUp.onclick = function () {
@@ -73,9 +74,10 @@ el_btnUp.onclick = function () {
     imgActive = images.length - 1;
   }
   el_images.children[imgActive].classList.add("active");
-  popolateThumbnails(rotateRight(images));
   el_title.innerText = images[imgActive].title;
   el_text.innerText = images[imgActive].text;
+  const copy_images = [...images];
+  popolateThumbnails(rotateRight(copy_images));
 };
 
 el_btnDown.onclick = function () {
@@ -85,9 +87,10 @@ el_btnDown.onclick = function () {
     imgActive = 0;
   }
   el_images.children[imgActive].classList.add("active");
-  popolateThumbnails(rotateLeft(images));
   el_title.innerText = images[imgActive].title;
   el_text.innerText = images[imgActive].text;
+  const copy_images = [...images];
+  popolateThumbnails(rotateLeft(copy_images));
 };
 
 // ===== FUNCTION ========================================================================= //
