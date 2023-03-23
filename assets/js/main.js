@@ -67,23 +67,8 @@ createCells_thumbnails();
 popolateThumbnails(images, 0);
 
 // ===== EVENT ========================================================================= //
-el_btnUp.onclick = function () {
-  el_images.children[imgActive].classList.remove("active");
-  imgActive--;
-  if (imgActive < 0) {
-    imgActive = images.length - 1;
-  }
-  change_el_carousel(images, imgActive);
-}
-
-el_btnDown.onclick = function () {
-  el_images.children[imgActive].classList.remove("active");
-  imgActive++;
-  if (imgActive >= images.length) {
-    imgActive = 0;
-  }
-  change_el_carousel(images, imgActive);
-}
+el_btnUp.onclick = upImage;
+el_btnDown.onclick = downImage;
 
 // ===== FUNCTION ========================================================================= //
 // Create an Array of temporary DOM element images
@@ -146,4 +131,22 @@ function change_el_carousel(images, imgActive) {
   el_title.innerText = images[imgActive].title;
   el_text.innerText = images[imgActive].text;
   popolateThumbnails(images, 5 - imgActive);
+}
+
+function upImage() {
+  el_images.children[imgActive].classList.remove("active");
+  imgActive--;
+  if (imgActive < 0) {
+    imgActive = images.length - 1;
+  }
+  change_el_carousel(images, imgActive);
+}
+
+function downImage() {
+  el_images.children[imgActive].classList.remove("active");
+  imgActive++;
+  if (imgActive >= images.length) {
+    imgActive = 0;
+  }
+  change_el_carousel(images, imgActive);
 }
