@@ -14,16 +14,24 @@
 
 /* #endregion utilities .......................*/
 .ms_carousel {
-    margin-top: 10rem;
     background-color: var(--ca_bg_carousel);
     position: relative;
+    margin-top: 10rem;
+}
+
+.ms_carousel .ms_titel {
+    height: 5rem;
+}
+
+.ms_carousel .ms_images {
+    height: 30rem;
+}
+
+.ms_carousel .ms_text {
+    height: 5rem;
 }
 
 /* #endregion ms_images .......................*/
-.ms_carousel .ms_images {
-    height: 33rem;
-}
-
 .ms_carousel .ms_images > img {
     height: 100%;
     width: 100%;
@@ -37,7 +45,8 @@
 /* #endendregion ms_images ....................*/
 /* #endregion ms_thumbnails ........................*/
 .ms_carousel .ms_thumbnails {
-    height: 33rem;
+    height: 40rem;
+    position: relative;
 }
 
 .ms_carousel .ms_thumbnails_cell {
@@ -61,7 +70,7 @@ nav .ms_btn {
 }
 
 nav .ms_btn#up {
-    top: 10%;
+    top: 5%;
     right: 7.5%
 }
 
