@@ -51,11 +51,82 @@ const images = [
     text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
   }
 ];
+const el_images = document.querySelector(".ms_images");
+const el_thumbnails = document.querySelector(".ms_thumbnails");
+const el_btnUp = document.querySelector("#up");
+const el_btnDown = document.querySelector("#down");
+let imgActive = 0;
 
 // ===== MAIN ============================================================================= //
-
+popolateImages(images);
+createCells_thumbnails();
+popolateThumbnails(rotateRight(rotateRight(images)));
 
 // ===== EVENT ========================================================================= //
+el_btnUp.onclick = function () {
+  el_images.children[imgActive].classList.remove("active");
+  imgActive--;
+  if (imgActive < 0) {
+    imgActive = images.length - 1;
+  }
+  el_images.children[imgActive].classList.add("active");
+  popolateThumbnails(rotateRight(images));
+};
 
+el_btnDown.onclick = function () {
+  el_images.children[imgActive].classList.remove("active");
+  imgActive++;
+  if (imgActive >= images.length) {
+    imgActive = 0;
+  }
+  el_images.children[imgActive].classList.add("active");
+  popolateThumbnails(rotateLeft(images));
+};
 
 // ===== FUNCTION ========================================================================= //
+function rotateLeft(array) {
+  let first = array.shift();
+  array.push(first);
+  return array;
+}
+
+function rotateRight(array) {
+  let last = array.pop();
+  array.unshift(last);
+  return array;
+}
+
+function popolateThumbnails(images) {
+  let el_images_tmp = create_el_images_tmp(images);
+  el_images_tmp.forEach((el_image, i) => {
+    el_thumbnails.children[i].innerHTML = "";
+    el_thumbnails.children[i].append(el_image);
+  });
+}
+
+function createCells_thumbnails() {
+  for (let i = 0; i < 5; i++) {
+    const el_thumbnailsCell = document.createElement("div");
+    el_thumbnailsCell.classList.add("ms_thumbnails_cell", "ms_opacity");
+    el_thumbnails.append(el_thumbnailsCell);
+  }
+  el_thumbnails.children[2].classList.remove("ms_opacity");
+}
+
+function create_el_images_tmp(images) {
+  let el_images_tmp = [];
+  images.forEach(image => {
+    const el_image = document.createElement("img");
+    el_image.src = `./assets/${image.image}`;
+    el_images_tmp.push(el_image);
+  })
+  return el_images_tmp;
+}
+
+function popolateImages(images) {
+  let el_images_tmp = create_el_images_tmp(images);
+  el_images_tmp.forEach(image => {
+    el_images.append(image);
+  })
+  el_images.children[imgActive].classList.add("active");
+}
