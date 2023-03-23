@@ -58,12 +58,13 @@ const el_text = document.querySelector(".ms_text");
 const el_thumbnails = document.querySelector(".ms_thumbnails");
 const el_btnUp = document.querySelector("#up");
 const el_btnDown = document.querySelector("#down");
+const CENTRE_THUMBNAILS = 2
 let imgActive = 0;
 
 // ===== MAIN ============================================================================= //
 popolateImages(images);
 createCells_thumbnails();
-popolateThumbnails(rotateImages(images, 5 - imgActive));
+popolateThumbnails(images, 0);
 
 // ===== EVENT ========================================================================= //
 el_btnUp.onclick = function () {
@@ -72,11 +73,8 @@ el_btnUp.onclick = function () {
   if (imgActive < 0) {
     imgActive = images.length - 1;
   }
-  el_images.children[imgActive].classList.add("active");
-  el_title.innerText = images[imgActive].title;
-  el_text.innerText = images[imgActive].text;
-  popolateThumbnails(rotateImages(images, 5 - imgActive));
-};
+  change_el_carousel(images, imgActive);
+}
 
 el_btnDown.onclick = function () {
   el_images.children[imgActive].classList.remove("active");
@@ -84,15 +82,26 @@ el_btnDown.onclick = function () {
   if (imgActive >= images.length) {
     imgActive = 0;
   }
-  el_images.children[imgActive].classList.add("active");
-  el_title.innerText = images[imgActive].title;
-  el_text.innerText = images[imgActive].text;
-  popolateThumbnails(rotateImages(images, 5 - imgActive));
-};
+  change_el_carousel(images, imgActive);
+}
 
 // ===== FUNCTION ========================================================================= //
-function popolateThumbnails(el_image) {
-  el_image.forEach((el_image, i) => {
+// Create an Array of temporary DOM element images
+// It is used as a support by other functions
+function create_el_images_tmp(images) {
+  let el_images_tmp = [];
+  images.forEach(image => {
+    const el_image = document.createElement("img");
+    el_image.src = `./assets/${image.image}`;
+    el_images_tmp.push(el_image);
+  })
+  return el_images_tmp;
+}
+
+// Populate the cells with Thumbnails, 
+function popolateThumbnails(images) {
+  el_imageRotate = rotateImages(images, 5 - imgActive)
+  el_imageRotate.forEach((el_image, i) => {
     el_thumbnails.children[i].innerHTML = "";
     el_thumbnails.children[i].append(el_image);
   });
@@ -107,16 +116,10 @@ function createCells_thumbnails() {
   el_thumbnails.children[2].classList.remove("ms_opacity");
 }
 
-function create_el_images_tmp(images) {
-  let el_images_tmp = [];
-  images.forEach(image => {
-    const el_image = document.createElement("img");
-    el_image.src = `./assets/${image.image}`;
-    el_images_tmp.push(el_image);
-  })
-  return el_images_tmp;
-}
-
+// Popola l'elemento della DOM chiamata ms_images
+// Attiva la prima immagine
+// Visualizza il primo titolo
+// Visualizza il primo testo
 function popolateImages(images) {
   let el_images_tmp = create_el_images_tmp(images);
   el_images_tmp.forEach(image => {
@@ -127,11 +130,20 @@ function popolateImages(images) {
   el_text.innerText = images[0].text;
 }
 
-function rotateImages(images, n) {
+// Returns an image array of support DOM elements rotated the requested number of times
+function rotateImages(images, rotationRequest) {
+  const TOT_ROTATION = CENTRE_THUMBNAILS + rotationRequest
   let el_images_tmp = create_el_images_tmp(images);
-  for (let i = 0; i < n + 2; i++) {
+  for (let i = 0; i < TOT_ROTATION; i++) {
     let last = el_images_tmp.pop();
     el_images_tmp.unshift(last);
   }
   return el_images_tmp
+}
+
+function change_el_carousel(images, imgActive) {
+  el_images.children[imgActive].classList.add("active");
+  el_title.innerText = images[imgActive].title;
+  el_text.innerText = images[imgActive].text;
+  popolateThumbnails(images, 5 - imgActive);
 }
