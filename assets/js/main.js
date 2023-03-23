@@ -60,22 +60,34 @@ const el_btnUp = document.querySelector("#up");
 const el_btnDown = document.querySelector("#down");
 const el_btnPlay = document.querySelector("#play");
 const el_btnStop = document.querySelector("#stop");
-const el_btnRevert = document.querySelector("#revert");
+const el_btnReverse = document.querySelector("#revert");
 const CENTRE_THUMBNAILS = 2
 let imgActive = 0;
+let stopped = false;
+let verse = "up"
 
 // ===== MAIN ============================================================================= //
 popolateImages(images);
 createCells_thumbnails();
 popolateThumbnails(images, 0);
-
-
-
-let autoplay = setInterval(upImage, 3000);
+autoplay();
 
 // ===== EVENT ========================================================================= //
 el_btnUp.onclick = upImage;
 el_btnDown.onclick = downImage;
+el_btnPlay.onclick = function () {
+  stopped = false;
+}
+el_btnStop.onclick = function () {
+  stopped = true;
+}
+el_btnReverse.onclick = function () {
+  if (verse === "up") {
+    verse = "down";
+  } else {
+    verse = "up";
+  }
+}
 
 // ===== FUNCTION ========================================================================= //
 // Create an Array of temporary DOM element images
@@ -156,4 +168,16 @@ function downImage() {
     imgActive = 0;
   }
   change_el_carousel(images, imgActive);
+}
+
+function autoplay() {
+  setInterval(function () {
+    if (!stopped) {
+      if (verse === "up") {
+        upImage();
+      } else {
+        downImage()
+      }
+    }
+  }, 3000);
 }
