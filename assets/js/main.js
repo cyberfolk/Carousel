@@ -63,8 +63,7 @@ let imgActive = 0;
 // ===== MAIN ============================================================================= //
 popolateImages(images);
 createCells_thumbnails();
-const copy_images = [...images];
-popolateThumbnails(rotateRight(rotateRight(copy_images)));
+popolateThumbnails(rotateImages(images, 5 - imgActive));
 
 // ===== EVENT ========================================================================= //
 el_btnUp.onclick = function () {
@@ -76,8 +75,7 @@ el_btnUp.onclick = function () {
   el_images.children[imgActive].classList.add("active");
   el_title.innerText = images[imgActive].title;
   el_text.innerText = images[imgActive].text;
-  const copy_images = [...images];
-  popolateThumbnails(rotateRight(copy_images));
+  popolateThumbnails(rotateImages(images, 5 - imgActive));
 };
 
 el_btnDown.onclick = function () {
@@ -89,8 +87,7 @@ el_btnDown.onclick = function () {
   el_images.children[imgActive].classList.add("active");
   el_title.innerText = images[imgActive].title;
   el_text.innerText = images[imgActive].text;
-  const copy_images = [...images];
-  popolateThumbnails(rotateLeft(copy_images));
+  popolateThumbnails(rotateImages(images, 5 - imgActive));
 };
 
 // ===== FUNCTION ========================================================================= //
@@ -106,9 +103,8 @@ function rotateRight(array) {
   return array;
 }
 
-function popolateThumbnails(images) {
-  let el_images_tmp = create_el_images_tmp(images);
-  el_images_tmp.forEach((el_image, i) => {
+function popolateThumbnails(el_image) {
+  el_image.forEach((el_image, i) => {
     el_thumbnails.children[i].innerHTML = "";
     el_thumbnails.children[i].append(el_image);
   });
@@ -141,4 +137,13 @@ function popolateImages(images) {
   el_images.children[imgActive].classList.add("active");
   el_title.innerText = images[0].title;
   el_text.innerText = images[0].text;
+}
+
+function rotateImages(images, n) {
+  let el_images_tmp = create_el_images_tmp(images);
+  for (let i = 0; i < Math.abs(n) + 2; i++) {
+    rotateRight(el_images_tmp)
+  }
+  return el_images_tmp
+
 }
