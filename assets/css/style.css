@@ -1,3 +1,72 @@
 .debug * {
     border: red 1 dashed;
 }
+
+:root {
+    --ca_bg_carousel: #212333;
+    --ca_bg_side: #313447;
+}
+
+/* #region utilities .......................... */
+.ms_opacity {
+    filter: brightness(25%);
+}
+
+/* #endregion utilities .......................*/
+.ms_carousel {
+    margin-top: 10rem;
+    background-color: var(--ca_bg_carousel);
+    position: relative;
+    height: 33rem;
+}
+
+/* #endregion ms_images .......................*/
+.ms_carousel .ms_images {
+    width: 80%;
+}
+
+.ms_carousel .ms_images > img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.ms_carousel .ms_images > img:not(.active) {
+    display: none;
+}
+
+/* #endendregion ms_images ....................*/
+/* #endregion ms_thumbnails ........................*/
+.ms_carousel .ms_thumbnails {
+    width: 20%;
+}
+
+.ms_carousel .ms_thumbnails_cell {
+    height: 20%;
+    background-color: var(--ca_bg_side);
+    border: 1px solid black;
+    text-align: center;
+    overflow: hidden;
+}
+
+.ms_carousel .ms_thumbnails_cell > img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* #endendregion ms_thumbnails .....................*/
+
+nav .ms_btn {
+    position: absolute;
+}
+
+nav .ms_btn#up {
+    top: 5%;
+    right: 7.5%
+}
+
+nav .ms_btn#down {
+    bottom: 5%;
+    right: 7.5%
+}
