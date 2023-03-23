@@ -7,23 +7,19 @@
     --ca_bg_side: #313447;
 }
 
-/* #region utilities .......................... */
-.ms_opacity {
-    filter: brightness(25%);
-}
+/* #region ms_carousel_left .......................... */
 
-/* #endregion utilities .......................*/
 .ms_carousel {
     background-color: var(--ca_bg_carousel);
     position: relative;
     margin-top: 1rem;
 }
 
-.ms_carousel .ms_titel {
+.ms_carousel .ms_title {
     height: 5rem;
 }
 
-.ms_carousel .ms_images {
+.ms_carousel .ms_slider {
     height: 30rem;
 }
 
@@ -31,25 +27,20 @@
     height: 5rem;
 }
 
-/* #endregion ms_images .......................*/
-.ms_carousel .ms_images > img {
+.ms_carousel .ms_slider > img {
     height: 100%;
     width: 100%;
     object-fit: contain;
 }
 
-.ms_carousel .ms_images > img:not(.active) {
-    display: none;
-}
-
-/* #endendregion ms_images ....................*/
+/* #endendregion ms_carousel_left ....................*/
 /* #endregion ms_thumbnails ........................*/
-.ms_carousel .ms_thumbnails {
+.ms_thumbnails {
     height: 40rem;
     position: relative;
 }
 
-.ms_carousel .ms_thumbnails_cell {
+.ms_thumbnails_cell {
     height: 20%;
     background-color: var(--ca_bg_side);
     border: 1px solid black;
@@ -57,10 +48,14 @@
     overflow: hidden;
 }
 
-.ms_carousel .ms_thumbnails_cell > img {
+.ms_thumbnails_cell > img {
     height: 100%;
     width: 100%;
     object-fit: cover;
+}
+
+.ms_opacity {
+    filter: brightness(25%);
 }
 
 /* #endendregion ms_thumbnails .....................*/

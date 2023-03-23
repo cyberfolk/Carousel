@@ -52,7 +52,7 @@ const images = [
   }
 ];
 
-const el_images = document.querySelector(".ms_images");
+const el_image = document.querySelector(".ms_image");
 const el_title = document.querySelector(".ms_title");
 const el_text = document.querySelector(".ms_text");
 const el_thumbnails = document.querySelector(".ms_thumbnails");
@@ -72,45 +72,14 @@ createCells_thumbnails();
 popolateThumbnails(images, 0);
 autoplay();
 
-// ===== EVENT ========================================================================= //
+// ===== EVENT ============================================================================ //
 el_btnUp.onclick = upImage;
 el_btnDown.onclick = downImage;
-el_btnPlay.onclick = function () {
-  stopped = false;
-}
-el_btnStop.onclick = function () {
-  stopped = true;
-}
-el_btnReverse.onclick = function () {
-  if (verse === "up") {
-    verse = "down";
-  } else {
-    verse = "up";
-  }
-}
+el_btnPlay.onclick = playAutoplay;
+el_btnStop.onclick = stropAutoplay;
+el_btnReverse.onclick = reverseAutoplay;
 
-// ===== FUNCTION ========================================================================= //
-// Create an Array of temporary DOM element images
-// It is used as a support by other functions
-function create_el_images_tmp(images) {
-  let el_images_tmp = [];
-  images.forEach(image => {
-    const el_image = document.createElement("img");
-    el_image.src = `./assets/${image.image}`;
-    el_images_tmp.push(el_image);
-  })
-  return el_images_tmp;
-}
-
-// Populate the cells with Thumbnails, 
-function popolateThumbnails(images) {
-  el_imageRotate = rotateImages(images, 5 - imgActive)
-  el_imageRotate.forEach((el_image, i) => {
-    el_thumbnails.children[i].innerHTML = "";
-    el_thumbnails.children[i].append(el_image);
-  });
-}
-
+// ===== FUNCTION INITIALIZATION ========================================================== //
 function createCells_thumbnails() {
   for (let i = 0; i < 5; i++) {
     const el_thumbnailsCell = document.createElement("div");
@@ -120,18 +89,23 @@ function createCells_thumbnails() {
   el_thumbnails.children[2].classList.remove("ms_opacity");
 }
 
-// Popola l'elemento della DOM chiamata ms_images
 // Attiva la prima immagine
 // Visualizza il primo titolo
 // Visualizza il primo testo
 function popolateImages(images) {
-  let el_images_tmp = create_el_images_tmp(images);
-  el_images_tmp.forEach(image => {
-    el_images.append(image);
-  })
-  el_images.children[imgActive].classList.add("active");
+  el_image.src = getImageSrc(images[0].image);
   el_title.innerText = images[0].title;
   el_text.innerText = images[0].text;
+}
+
+// ==== FUNCTION THUMBNAILS =============================================================== //
+// Populate the cells with Thumbnails, 
+function popolateThumbnails(images, rotationRequest) {
+  el_imageRotate = rotateImages(images, rotationRequest)
+  el_imageRotate.forEach((el_image, i) => {
+    el_thumbnails.children[i].innerHTML = "";
+    el_thumbnails.children[i].append(el_image);
+  });
 }
 
 // Returns an image array of support DOM elements rotated the requested number of times
@@ -145,31 +119,44 @@ function rotateImages(images, rotationRequest) {
   return el_images_tmp
 }
 
-function change_el_carousel(images, imgActive) {
-  el_images.children[imgActive].classList.add("active");
+// Create an Array of temporary DOM element images
+// It is used as a support by other functions
+function create_el_images_tmp(images) {
+  let el_images_tmp = [];
+  images.forEach(image => {
+    const el_image = document.createElement("img");
+    el_image.src = getImageSrc(image.image);
+    el_images_tmp.push(el_image);
+  })
+  return el_images_tmp;
+}
+
+// ==== UTILITIES ========================================================================== //
+function getImageSrc(image) {
+  return `./assets/${image}`;
+}
+
+// ==== FUNCTION ROTATE BUTTON ============================================================= //
+function upImage() {
+  imgActive--;
+  imgActive < 0 ? imgActive = images.length - 1 : null
+  change_carousel_and_thumbnails(images, imgActive);
+}
+
+function downImage() {
+  imgActive++;
+  imgActive >= images.length ? imgActive = 0 : null
+  change_carousel_and_thumbnails(images, imgActive);
+}
+
+function change_carousel_and_thumbnails(images, imgActive) {
+  el_image.src = getImageSrc(images[imgActive].image);
   el_title.innerText = images[imgActive].title;
   el_text.innerText = images[imgActive].text;
   popolateThumbnails(images, 5 - imgActive);
 }
 
-function upImage() {
-  el_images.children[imgActive].classList.remove("active");
-  imgActive--;
-  if (imgActive < 0) {
-    imgActive = images.length - 1;
-  }
-  change_el_carousel(images, imgActive);
-}
-
-function downImage() {
-  el_images.children[imgActive].classList.remove("active");
-  imgActive++;
-  if (imgActive >= images.length) {
-    imgActive = 0;
-  }
-  change_el_carousel(images, imgActive);
-}
-
+// ==== FUNCTION AUTOPLAY  ============================================================= //
 function autoplay() {
   setInterval(function () {
     if (!stopped) {
@@ -180,4 +167,20 @@ function autoplay() {
       }
     }
   }, 3000);
+}
+
+function playAutoplay() {
+  stopped = false;
+}
+
+function stropAutoplay() {
+  stopped = true;
+}
+
+function reverseAutoplay() {
+  if (verse === "up") {
+    verse = "down";
+  } else {
+    verse = "up";
+  }
 }
