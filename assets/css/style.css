@@ -17,12 +17,11 @@
     margin-top: 10rem;
     background-color: var(--ca_bg_carousel);
     position: relative;
-    height: 33rem;
 }
 
 /* #endregion ms_images .......................*/
 .ms_carousel .ms_images {
-    width: 80%;
+    height: 33rem;
 }
 
 .ms_carousel .ms_images > img {
@@ -38,7 +37,7 @@
 /* #endendregion ms_images ....................*/
 /* #endregion ms_thumbnails ........................*/
 .ms_carousel .ms_thumbnails {
-    width: 20%;
+    height: 33rem;
 }
 
 .ms_carousel .ms_thumbnails_cell {
@@ -62,7 +61,7 @@ nav .ms_btn {
 }
 
 nav .ms_btn#up {
-    top: 5%;
+    top: 10%;
     right: 7.5%
 }
 
