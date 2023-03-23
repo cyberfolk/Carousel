@@ -51,6 +51,7 @@ const images = [
     text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
   }
 ];
+
 const el_images = document.querySelector(".ms_images");
 const el_thumbnails = document.querySelector(".ms_thumbnails");
 const el_btnUp = document.querySelector("#up");
