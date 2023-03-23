@@ -66,6 +66,10 @@ popolateImages(images);
 createCells_thumbnails();
 popolateThumbnails(images, 0);
 
+
+
+let autoplay = setInterval(upImage, 3000);
+
 // ===== EVENT ========================================================================= //
 el_btnUp.onclick = upImage;
 el_btnDown.onclick = downImage;
