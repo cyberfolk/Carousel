@@ -17,6 +17,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            autoplay: "",
             activeImage: 0,
             images: [
                 {
@@ -58,7 +59,41 @@ createApp({
         },
         changeImage(index) {
             this.activeImage = index;
-        }
-    }
+        },
+    },
+    mounted() {
+        this.autoPlay = setInterval(this.next, 3000)
+    },
 }
 ).mount('#app')
+
+
+/* // Bonus 2 Autoplay carousel
+// - increment the active slide value every 3 seconds
+let autoplay;
+autoplay = setInterval(next, 3000)
+
+// Bonus 3 Start stop carousel
+// - on mouse enter inside the slider stop the autoplay
+const slider_dom_element = document.querySelector('.slider')
+slider_dom_element.addEventListener('mouseenter', () => {
+
+  clearInterval(autoplay)
+
+})
+// - on mouse leave restart the autoplay
+slider_dom_element.addEventListener('mouseleave', () => {
+  autoplay = setInterval(next, 3000)
+})
+
+// Invert the autoplay on button click
+// - attach event listener to the revert button
+// - when clicked stop the autoplay
+// - restart the autoplay using the prev callback
+
+document.querySelector('button.revert').addEventListener('click', () => {
+  console.log('clicket on revert');
+  clearInterval(autoplay)
+  autoplay = setInterval(prev, 3000)
+})
+ */
