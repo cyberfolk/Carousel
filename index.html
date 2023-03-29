@@ -31,6 +31,10 @@
 
                     <div class="slides" @mouseover="stopAutoplay" @mouseleave="restartAutoplay">
                         <img :src="images[activeImage].image" alt="">
+                        <div class="text">
+                            <h3>{{images[activeImage].title}}</h3>
+                            <p>{{images[activeImage].text}}</p>
+                        </div>
                     </div>
                     <!-- /.slides -->
 
