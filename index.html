@@ -29,7 +29,7 @@
                     </div>
                     <!-- /.controls -->
 
-                    <div class="slides">
+                    <div class="slides" @mouseover="stopAutoplay" @mouseleave="restartAutoplay">
                         <img :src="images[activeImage].image" alt="">
                     </div>
                     <!-- /.slides -->
