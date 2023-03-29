@@ -17,6 +17,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            revert: false,
             autoplay: "",
             activeImage: 0,
             images: [
@@ -64,7 +65,21 @@ createApp({
             clearInterval(this.autoPlay)
         },
         restartAutoplay() {
-            this.autoPlay = setInterval(this.next, 3000)
+            if (this.revert === true) {
+                this.autoPlay = setInterval(this.prev, 3000)
+            } else {
+                this.autoPlay = setInterval(this.next, 3000)
+            }
+        },
+        revertAutoplay() {
+            clearInterval(this.autoPlay)
+            if (this.revert === true) {
+                this.autoPlay = setInterval(this.next, 3000)
+                this.revert = false;
+            } else {
+                this.autoPlay = setInterval(this.prev, 3000)
+                this.revert = true;
+            }
         }
     },
     mounted() {
