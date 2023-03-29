@@ -16,6 +16,30 @@
         <div id="app">
             <div class="container">
 
+                <button class="revert">
+                    <span>Revert autoplay</span>
+                    <i class="fa-solid fa-arrow-rotate-left"></i>
+                </button>
+                <!-- /.revert -->
+
+                <div class="slider">
+                    <div class="controls">
+                        <button @click="prev" class="prev"> <i class="fa fa-arrow-up"></i> </button>
+                        <button @click="next" class="next"> <i class="fas fa-arrow-down"></i> </button>
+                    </div>
+                    <!-- /.controls -->
+
+                    <div class="slides">
+                        <img :src="images[activeImage].image" alt="">
+                    </div>
+                    <!-- /.slides -->
+
+                    <div class="thumbs">
+                        <img :src="image.image" :class="index === activeImage ? 'active' : ''" v-for="(image, index) in images" @click="changeImage(index)" alt="">
+                    </div>
+                    <!-- /.thumbs -->
+                </div>
+                <!-- /.slider -->
             </div>
             <!-- /.container -->
         </div>
