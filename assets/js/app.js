@@ -46,14 +46,14 @@ createApp({
     methods: {
         next() {
             this.activeImage++;
-            if (this.activeImage == this.image.images.length) {
+            if (this.activeImage == this.images.length) {
                 this.activeImage = 0;
             }
         },
         prev() {
             this.activeImage--;
             if (this.activeImage < 0) {
-                this.activeImage = this.image.images.length - 1;
+                this.activeImage = this.images.length - 1;
             }
         },
         changeImage(index) {
