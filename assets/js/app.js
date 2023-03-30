@@ -19,7 +19,7 @@ createApp({
     data() {
         return {
             revert: false,
-            autoplay: "",
+            autoplay: null,
             activeImage: 0,
             images: images,
         }
