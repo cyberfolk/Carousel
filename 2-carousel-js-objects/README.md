@@ -2,6 +2,8 @@
 
 Dato un array di object-literal aventi: **path-image**, **titolo** e **descrizione**, creare un carosello interattivo come nello screenshot allegato.
 
+![carousel-preview](./assets/img/screencapture.png)
+
 ## Milestone:
 - [x] **1. Recicle projects** &rarr; Recuperare la struttura del precedente esercizio e sostituire l'array d'immagini con l’array di oggetti letterali.
 - [x] **2. Add info-data** &rarr; Aggiungere titolo e testo in maniera dinamica alle immmagini visualizzate

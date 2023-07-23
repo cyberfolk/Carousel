@@ -7,6 +7,10 @@
     --ca_bg_side: #313447;
 }
 
+body {
+    background-image: url(./../img/bg-cf.jpg);
+}
+
 /* #region ms_carousel_left .......................... */
 
 .ms_carousel {
