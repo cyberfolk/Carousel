@@ -1,6 +1,8 @@
 # Carousel js-array
 
 Dato un array contenente una lista di cinque immagini, creare un carosello interattivo come nello screenshot allegato.
+![carousel-preview](./assets/img/screencapture.png)
+
 
 ## Milestone
 - [x] **1. Markup Statico** &rarr; costruire il container e inserire un'immagine grande al centro.
