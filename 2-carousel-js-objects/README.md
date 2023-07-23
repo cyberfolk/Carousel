@@ -1,25 +1,9 @@
-# js-array-object-carousel
+# Carousel js-object
 
-Dato un array di oggetti letterali con:
- - Url dell’immagine
- - Titolo
- - Descrizione
+Dato un array di object-literal aventi: **path-image**, **titolo** e **descrizione**, creare un carosello interattivo come nello screenshot allegato.
 
-Creare un carosello come nella foto allegata.
-
-## Milestone 0:
-Come nel primo carosello realizzato, focalizzarsi prima sulla creazione del markup statico: costruire il container e inserire l'immagine grande in modo da poter stilare lo slider.
-
-## Milestone 1:
-- Ora rimuovere i contenuti statici e usare l’array di oggetti letterali per popolare dinamicamente il carosello.
-- Al click dell'utente sulle frecce verso sinistra o destra, l'immagine attiva diventerà visibile e dovremo aggiungervi titolo e testo.
-
-## Milestone 2:
-- Aggiungere il ciclo infinito del carosello.
-- Ovvero se la miniatura attiva è la prima e l'utente clicca la freccia verso destra, la miniatura che deve attivarsi sarà l'ultima e
-- Viceversa per l'ultima miniatura se l'utente clicca la freccia verso sinistra.
-
-## BONUS:
-- Aggiungere le thumbnails (sottoforma di miniatura) ed al click attivare l’immagine corrispondente.
-- Aggiungere funzionalità di autoplay: dopo un certo periodo di tempo (3 secondi) l’immagine attiva dovrà cambiare alla successiva.
-- Aggiungere bottoni di start/stop e di inversione del meccanismo di autoplay
+## Milestone:
+- [x] **1. Recicle projects** &rarr; Recuperare la struttura del precedente esercizio e sostituire l'array d'immagini con l’array di oggetti letterali.
+- [x] **2. Add info-data** &rarr; Aggiungere titolo e testo in maniera dinamica alle immmagini visualizzate
+- [x] **3. Add Autoplay** &rarr; Dopo un certo periodo di tempo (3 secondi) l’immagine attiva dovrà cambiare alla successiva.
+- [x] **3. Add Buttons** &rarr; Start/stop e di inversione del meccanismo di autoplay
