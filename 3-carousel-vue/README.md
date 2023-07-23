@@ -1,11 +1,7 @@
-# Vue Slider
-Partendo dal markup della versione svolta in js plain, rifare lo slider ma questa volta usando Vue.
+# Carousel Vue
+Partendo dal codice dell'esercizio precedente, rifare il carosello sfruttando il **databinding** di **Vue.js.**
 
-BONUS:
-1- al click su una thumb, visualizzare in grande l'immagine corrispondente
-2- applicare l'autoplay allo slider: ogni 3 secondi, cambia immagine automaticamente
-3- quando il mouse va in hover sullo slider, bloccare l'autoplay e farlo riprendere quando esce
-
-TIPS:
-regola d'oro: riciclare ovunque possibile! Questo significa che per la parte di markup possiamo recuperare html e css dell'esercizio svolto qualche giorno fa: è già tutto pronto!
-il riciclo spesso va a braccetto con le funzioni! Sapendole sfruttare bene, l'esercizio si riduce a poche righe ;
+## Milestone
+- [x] **1. Recicle projects** &rarr; Recuperare la struttura del precedente esercizio e aggiustarla con la sintassi di Vue.
+- [x] **2. Click on Thumb** &rarr; Al click su una thumb, passare all'immagine corrispondente
+- [x] **3. Stop on Hover** &rarr;quando il mouse va in hover sullo slider, bloccare l'autoplay e farlo riprendere quando esce
