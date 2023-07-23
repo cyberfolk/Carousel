@@ -2,6 +2,10 @@
     border: 1px dashed red;
 }
 
+body {
+    background-image: url(./../img/bg-cf.jpg);
+}
+
 .slider {
     position: relative;
     height: 500px;
@@ -82,9 +86,9 @@ button.next {
 }
 
 .thumbs img.active {
-    border: 4px inset black;
+    border: 2px inset black;
 }
 
 .thumbs img:not(.active) {
-    opacity: 0.5;
+    opacity: 0.4;
 }

@@ -13,12 +13,12 @@ const images = [
     'Go dimension-hopping with Ratchet and Clank as they take on an evil emperor from another reality.'),
   new Image(
     './assets/img/04.webp',
-    'Fortnite',
-    "Grab all of your friends and drop into Epic Games Fortnite, a massive 100 - player face - off that combines looting, crafting, shootouts and chaos."),
-  new Image(
-    './assets/img/03.webp',
     'Stray',
     'Lost, injured and alone, a stray cat must untangle an ancient mystery to escape a long-forgotten city'),
+  new Image(
+    './assets/img/03.webp',
+    'Fortnite',
+    "Grab all of your friends and drop into Epic Games Fortnite, a massive 100 - player face - off that combines looting, crafting, shootouts and chaos."),
   new Image(
     './assets/img/05.webp',
     'Marvel\'s Avengers',
