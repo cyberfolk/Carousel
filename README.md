@@ -1,6 +1,6 @@
 # Carousel
 
-In questa repo sono contenuti 3 Caroselli differenti, in ognuno dei quali è possibile scorrere tra le immagini con gli appositi pulsanti e inoltre è visibile un anteprima delle immagini tramite delle apposite thumbnails.
+In questa repo sono contenuti 3 Caroselli differenti, in ognuno dei quali è possibile scorrere tra le immagini usando dei pulsanti e inoltre è visibile un anteprima delle immagini tramite delle apposite thumbnails.
 
 <div>
   <img src="./1-carousel-js-array/assets/img/screencapture.png" width="32%" style="margin: 4px;"/>
