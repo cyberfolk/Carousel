@@ -1,14 +1,17 @@
 # Carousel
+**Initial commit:** 14/03/23
 
-In questa repo sono contenuti 3 Caroselli differenti, in ognuno dei quali è possibile scorrere tra le immagini usando dei pulsanti e inoltre è visibile un anteprima delle immagini tramite delle apposite thumbnails.
+**Technologies:** Vue.js, Javascript, Axios, HTML, CSS, SASS e Bootstrap.
+
+:camera: This repository contains three different carousels. Each carousel has buttons for scrolling through images and thumbnails for previewing them.
 
 <div>
-  <img src="./1-carousel-js-array/assets/img/screencapture.png" width="32%" style="margin: 4px;"/>
-  <img src="./2-carousel-js-objects/assets/img/screencapture.png" width="32%" style="margin: 4px;"/> 
-  <img src="./3-carousel-vue/assets/img/screencapture.png" width="32%" style="margin: 4px;"/>
+  <img src="./1-carousel-js-array/assets/img/screencapture.png" height="150px" style="margin: 4px;"/>
+  <img src="./2-carousel-js-objects/assets/img/screencapture.png" height="150px" style="margin: 4px;"/> 
+  <img src="./3-carousel-vue/assets/img/screencapture.png" height="150px" style="margin: 4px;"/>
 </div>
  
 ## Milestone
-- [x] **1. Carosello JS Array** &rarr; `JS-plain`, le immagini sono contenute in un Array.
-- [x] **2. Carosello JS Objects** &rarr; `JS-plain`, il carosello oltre alle immagini fa scorrere anche i relativi titoli e descrizioni. Immagini e dati relativi sono contenuti in un Array-Literal.
-- [x] **3. Carosello Vue Array** &rarr; `Vue.js`, come l'esercizio precedente ma il codice viene notevolmente alleggerito dal `databinding` di Vue.js
+- [x] **1. Carousel JS Array** &rarr; `JS-plain` the images are stored in an Array.
+- [x] **2. Carousel JS Objects** &rarr; `JS-plain` the carousel scrolls images and their related titles/descriptions, which are contained in an Array-Literal.
+- [x] **3. Carousel Vue Array** &rarr; `Vue.js` like the previous exercise but the code is significantly lightened by the `data-binding` of Vue.js
