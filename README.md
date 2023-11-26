@@ -6,9 +6,9 @@
 **Info**: :camera: This repository contains three different carousels. Each carousel has buttons for scrolling through images and thumbnails for previewing them.
 
 <div>
-  <img src="./1-carousel-js-array/assets/img/screencapture.png" height="140px" style="margin: 4px;"/>
-  <img src="./2-carousel-js-objects/assets/img/screencapture.png" height="140px" style="margin: 4px;"/> 
-  <img src="./3-carousel-vue/assets/img/screencapture.png" height="140px" style="margin: 4px;"/>
+  <img src="./1-carousel-js-array/assets/img/screencapture.png" height="130px" style="margin: 4px;"/>
+  <img src="./2-carousel-js-objects/assets/img/screencapture.png" height="130px" style="margin: 4px;"/> 
+  <img src="./3-carousel-vue/assets/img/screencapture.png" height="130px" style="margin: 4px;"/>
 </div>
  
 ## Exercises list
